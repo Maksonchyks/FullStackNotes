@@ -1,0 +1,16 @@
+# .NET
+bin/
+obj/
+*.user
+*.suo
+
+# Node.js / Frontend
+node_modules/
+dist/
+.env
+
+# IDE / System
+.vscode/
+.vs/
+.DS_Store
+Thumbs.db

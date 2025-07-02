@@ -1,0 +1,6 @@
+@MyFullStackNotes.Api_HostAddress = http://localhost:5093
+
+GET {{MyFullStackNotes.Api_HostAddress}}/
+Accept: application/json
+
+###
