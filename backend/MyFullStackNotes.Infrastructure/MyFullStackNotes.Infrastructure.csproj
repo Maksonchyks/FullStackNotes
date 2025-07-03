@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MyFullStackNotes.Application\MyFullStackNotes.Application.csproj" />
     <ProjectReference Include="..\MyFullStackNotes.Domain\MyFullStackNotes.Domain.csproj" />
   </ItemGroup>
 
