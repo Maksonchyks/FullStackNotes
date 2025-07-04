@@ -36,6 +36,10 @@ namespace MyFullStackNotes.Infrastructure.EntityTypeConfigurations
 
             builder.Property(u => u.CreatedAt)
                 .IsRequired();
+
+            builder.HasMany(u => u.Notes)
+                .WithOne(n => n.User)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

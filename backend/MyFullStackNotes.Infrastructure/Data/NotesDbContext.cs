@@ -15,10 +15,13 @@ namespace MyFullStackNotes.Infrastructure.Data
         {
         }
         public DbSet<User> Users { get; set; }
+        public DbSet<Note> Notes { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfiguration(new UserConfiguration());
+            builder.ApplyConfiguration(new NoteConfiguration());
             base.OnModelCreating(builder);
         }
     }
