@@ -20,5 +20,17 @@ namespace MyFullStackNotes.Domain.Entities
             Description = description;
             UserId = userId;
         }
+
+        public void ChangeTitle(string newTitle)
+        {
+            if (string.IsNullOrWhiteSpace(newTitle))
+                throw new ArgumentException("Заголовок не може бути порожнім.", nameof(newTitle));
+
+            Title = newTitle;
+        }
+        public void ChangeDescription(string? newDescription)
+        {
+            Description = newDescription; 
+        }
     }
 }
