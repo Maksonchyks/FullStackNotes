@@ -10,6 +10,7 @@ namespace MyFullStackNotes.Domain.Entities
         public string PasswordHash { get; private set; }
         public UserRole Role { get; private set; } = UserRole.User;
         public DateTime CreatedAt { get; private set; } = DateTime.UtcNow;
+        public List<Note> Notes { get; private set; } = new();
         public User(string email, string name, string passwordHash)
         {
             Email = email;
