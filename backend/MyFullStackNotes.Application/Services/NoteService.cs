@@ -50,9 +50,16 @@ namespace MyFullStackNotes.Application.Services
         public async Task UpdateNoteAsync(Guid id, string? newTitle, string newDescription)
         {
             var note = await _noteRepository.GetByIdAsync(id);
-            if (note is null) return;
+            if (note is null)
+            {
+                _logger.LogWarning("Note with ID {NoteId} not found for update", id);
+                return;
+            }
 
+            if (!string.IsNullOrWhiteSpace(newTitle))
+                note.ChangeTitle(newTitle);
 
+            note.ChangeDescription(newDescription);
 
             await _noteRepository.UpdateAsync(note);
             _logger.LogInformation("Note {NoteId} updated", id);
