@@ -9,7 +9,7 @@ using MyFullStackNotes.Domain.Entities;
 
 namespace MyFullStackNotes.Application.Services
 {
-    class NoteService : INoteService
+    public class NoteService : INoteService
     {
         private readonly INoteRepository _noteRepository;
         private readonly ILogger<NoteService> _logger;
