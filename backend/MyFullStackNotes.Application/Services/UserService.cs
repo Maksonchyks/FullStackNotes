@@ -5,7 +5,7 @@ using MyFullStackNotes.Domain.Enums;
 
 namespace MyFullStackNotes.Application.Services
 {
-    class UserService : IUserService
+    public class UserService : IUserService
     {
         private readonly IUserRepository _repo;
         private readonly ILogger<UserService> _logger;

@@ -9,7 +9,7 @@ using MyFullStackNotes.Infrastructure.EntityTypeConfigurations;
 
 namespace MyFullStackNotes.Infrastructure.Data
 {
-    class NotesDbContext : DbContext
+    public class NotesDbContext : DbContext
     {
         public NotesDbContext(DbContextOptions<NotesDbContext> options) : base(options)
         {

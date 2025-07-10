@@ -11,7 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\MyFullStackNotes.Application\MyFullStackNotes.Application.csproj" />
+    <ProjectReference Include="..\MyFullStackNotes.Domain\MyFullStackNotes.Domain.csproj" />
+    <ProjectReference Include="..\MyFullStackNotes.Infrastructure\MyFullStackNotes.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

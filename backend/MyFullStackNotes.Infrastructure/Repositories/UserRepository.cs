@@ -10,7 +10,7 @@ using MyFullStackNotes.Infrastructure.Data;
 
 namespace MyFullStackNotes.Infrastructure.Repositories
 {
-    class UserRepository : IUserRepository
+    public class UserRepository : IUserRepository
     {
         private readonly NotesDbContext _context;
         public UserRepository(NotesDbContext Context) { 
