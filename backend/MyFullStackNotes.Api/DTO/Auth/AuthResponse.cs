@@ -1,4 +1,4 @@
-﻿namespace MyFullStackNotes.Api.DTO
+﻿namespace MyFullStackNotes.Api.DTO.Auth
 {
     public class AuthResponse
     {
