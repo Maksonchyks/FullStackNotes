@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.EntityFrameworkCore.Query.Internal;
-using MyFullStackNotes.Api.DTO;
+using MyFullStackNotes.Api.DTO.Auth;
 using MyFullStackNotes.Application.Interfaces;
 
 namespace MyFullStackNotes.Api.Controllers
