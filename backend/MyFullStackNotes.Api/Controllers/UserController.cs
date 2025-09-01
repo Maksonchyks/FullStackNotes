@@ -9,6 +9,7 @@ namespace MyFullStackNotes.Api.Controllers
 {
     [Route("api/[controller]")]
     [Authorize(Roles = "Admin,Owner")]
+    [ApiController]
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
@@ -17,7 +18,6 @@ namespace MyFullStackNotes.Api.Controllers
             _userService = userService;
         }
         [HttpDelete("delete/{id}")]
-        [Authorize(Roles = "Admin,Owner")]
         public async Task<ActionResult> Delete(Guid id)
         {
             var user = await _userService.GetByIdAsync(id);
@@ -32,7 +32,6 @@ namespace MyFullStackNotes.Api.Controllers
         }
 
         [HttpGet("users")]
-        [Authorize(Roles = "Admin,Owner")]
         public async Task<ActionResult<List<User>>> GetAll()
         {
             var users = await _userService.GetAllAsync();
@@ -40,7 +39,6 @@ namespace MyFullStackNotes.Api.Controllers
         }
 
         [HttpGet("by-email")]
-        [Authorize(Roles = "Admin,Owner")]
         public async Task<ActionResult<User?>> GetByEmail([FromQuery] string email) 
         {
             var user = await _userService.GetByEmailAsync(email);
@@ -50,7 +48,6 @@ namespace MyFullStackNotes.Api.Controllers
         }
 
         [HttpGet("by-id/{id}")]
-        [Authorize(Roles = "Admin,Owner")]
         public async Task<ActionResult<User>> GetById([FromRoute] Guid id)
         {
             var user = await _userService.GetByIdAsync(id);
@@ -61,13 +58,16 @@ namespace MyFullStackNotes.Api.Controllers
 
 
         [HttpPatch("update/{id}")]
-        [Authorize(Roles = "Admin,Owner")]
         public async Task<ActionResult<User>> Update([FromRoute] Guid id, [FromBody] UpdateRoleRequest updateRequest)
         {
+            var user = await _userService.GetByIdAsync(id);
+            if (user == null) return NotFound();
+
+            if (user.Role == UserRole.Owner && User.IsInRole("Admin"))
+                return Forbid();
+
             await _userService.UpdateRoleAsync(id, updateRequest.UserRole);
             return Ok();
-
         }
-
     }
 }
