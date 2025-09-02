@@ -12,7 +12,7 @@ namespace MyFullStackNotes.Application.Interfaces
         Task AddNoteAsync(string title, string? description, Guid userId);
         Task<List<Note>> GetAllNotesAsync(Guid userId);
         Task<Note?> GetNoteByIdAsync(Guid noteId);
-        Task UpdateNoteAsync(Guid noteId, string newTitle, string newDescription);
+        Task UpdateNoteAsync(Guid noteId, string? newTitle, string newDescription);
         Task DeleteNoteAsync(Guid noteId);
     }
 }
